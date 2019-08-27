@@ -1,15 +1,16 @@
 import React from 'react';
 import logo from './spacex-logo.png';
 import './App.css';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Launches from './components/Launches';
 import Launch from './components/Launch'
+import { createHttpLink } from 'apollo-link-http';
 
-const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql'
-})
+const link = createHttpLink({ uri: 'http://localhost:5000/graphql' });
+const cache = new InMemoryCache();
+const client = new ApolloClient({ link, cache })
 
 function App() {
   return (
