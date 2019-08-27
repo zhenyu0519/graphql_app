@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import LaunchItem from './Launchitem';
+import MissionKey from './MissionKey';
 
 const LAUNCHES_QUERY = gql`
  query LaunchesQuery {
@@ -20,6 +21,7 @@ export default function Launches() {
     if (error) console.log('this is error!', error)
     return (
         <React.Fragment>
+            <MissionKey />
             {data.launches.map(launch =>
                 (<LaunchItem key={launch.flight_number} launch={launch}></LaunchItem>)
             )}
