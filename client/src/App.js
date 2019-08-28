@@ -5,7 +5,9 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Launches from './components/Launches';
-import Launch from './components/Launch'
+import Launch from './components/Launch';
+import Rockets from './components/Rockets';
+import Rocket from './components/Rocket';
 
 // const link = createHttpLink({ uri: 'http://localhost:5000/graphql' });
 // const cache = new InMemoryCache();
@@ -23,6 +25,8 @@ function App() {
           <img src={logo} className="spacex-logo" alt="logo" style={{ display: "block", width: "300px", margin: "auto" }} />
           <Route exact path="/" component={Launches} />
           <Route exact path="/launch/:flight_number" component={Launch} />
+          <Route exact path="/rockets" component={Rockets} />
+          <Route exact path="/rocket/:rocket_id" component={Rocket} />
         </div>
       </Router>
     </ApolloProvider>
