@@ -22,7 +22,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="container">
-          <img src={logo} className="spacex-logo" alt="logo" style={{ display: "block", width: "300px", margin: "auto" }} />
+          <img src={logo} className="spacex-logo" alt="logo" style={{ display: "block", width: "400px", height: '200px', margin: "auto" }} />
           <Route exact path="/" component={Launches} />
           <Route exact path="/launch/:flight_number" component={Launch} />
           <Route exact path="/rockets" component={Rockets} />
